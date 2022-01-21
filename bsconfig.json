@@ -1,9 +1,15 @@
 {
-  "name": "rescript-nextjs-template",
+  "name": "rescript-react-next",
   "namespace": false,
   "reason": { "react-jsx": 3 },
-  "refmt": 3,
-  "bs-dependencies": ["@rescript/react"],
+  "bs-dependencies": [
+    "@rescript/react",
+    "rescript-future",
+    "rescript-asyncdata",
+    "rescript-request",
+    "rescript-js",
+    "bs-fetch"
+  ],
   "ppx-flags": [],
   "sources": [
     { "dir": "src", "subdirs": true }
@@ -13,10 +19,6 @@
     "in-source": true
   },
   "suffix": ".mjs",
-  "warnings": {
-    "number": "-3",
-    "error": "+101+8"
-  },
   "gentypeconfig": {
     "language": "untyped",
     "shims": []
