@@ -5,7 +5,17 @@
 
 ```console
 $ npm install (처음 설치시)
-$ npm run dev:watch (이후 개발 할 때) 
+
+이후에는 
+(방법 1)
+$ npm run dev:watch
+
+or 
+
+(방법 2 - 터미널 두개 열어서 아래명령어 각각 입력)
+$ npm run dev
+$ npm run res:start
+
 dev:watch 명령어는 res:start 와 dev 명령어를 합쳐 놓은 명령어입니다.
 ```
 

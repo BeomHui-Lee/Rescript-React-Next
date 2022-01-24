@@ -4,7 +4,7 @@ export const Day3Q = () => {
     const [question, setQuestion] = useState("");
     const [qArray, setQArray] = useState([]);
     const [move, changeMove] = useState({x: 3, y: 1});
-    const [num, changeNum] = useState(11);
+    const [num, changeNum] = useState(31);
     const [answer, setAnswer] = useState(0);
 
     const questionChange = (e) => {

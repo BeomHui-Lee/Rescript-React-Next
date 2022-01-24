@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7215944-4a49-4c2a-8d97-b4a536d4d2eb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples.res" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples.res" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/MainLayout.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/MainLayout.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/MainLayout.res" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/MainLayout.res" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +34,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -108,7 +103,8 @@
       <workItem from="1642924494166" duration="2767000" />
       <workItem from="1642947103897" duration="1153000" />
       <workItem from="1642979721285" duration="11205000" />
-      <workItem from="1642999511760" duration="3566000" />
+      <workItem from="1642999511760" duration="12553000" />
+      <workItem from="1643025928329" duration="1125000" />
     </task>
     <servers />
   </component>
