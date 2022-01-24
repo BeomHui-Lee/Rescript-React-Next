@@ -4,8 +4,6 @@
 let default = () => {
   let (question, setQuestion) = React.useState(_ => "")
   let (qArray, setQArray) = React.useState(_ => [])
-  let (move, changeMove) = React.useState(_ => {"x": 3, "y": 1})
-  let (num, changeNum) = React.useState(_ => 31)
   let (answer, setAnswer) = React.useState(_ => 0)
 
   let questionChange = e => {
@@ -13,44 +11,15 @@ let default = () => {
   }
 
   let handleOnClick = () => {
+    Js.log("문제읽기")
     let text = question
-    changeNum(_ => Js.String2.indexOf(text, "\n")) // 한 줄마다 문자가 몇개씩 있는지
     setQArray(_ => Js.String2.split(text, "\n"))
   }
 
   let handleOnClick2 = () => {
-    let tempX = ref(0) //우측으로 이동하는 값을 체크하는 변수
-    let tempArray = qArray
-    let totalString = ref(tempArray[0] ++ "\n")
-    let count = ref(0) // X 개수가 몇개인지 카운트
-
-    for i in 1 to qArray->Belt.Array.length - 1 {
-      if mod(i, move["y"]) === 0 {
-        //아래쪽으로 몇칸 갈때마다 체크할지
-        tempX := tempX.contents + move["x"]
-        tempX.contents > num - 1 ? tempX := tempX.contents - num : tempX := tempX.contents
-        let s = ref(tempArray[i])
-
-        switch Js.String2.substrAtMost(s.contents, ~from=tempX.contents, ~length=1) {
-        | "#" =>
-          s :=
-            Js.String2.substrAtMost(s.contents, ~from=0, ~length=tempX.contents) ++
-            "X" ++
-            Js.String2.substrAtMost(s.contents, ~from=tempX.contents + 1, ~length=num)
-          count := count.contents + 1
-        | "." =>
-          s :=
-            Js.String2.substrAtMost(s.contents, ~from=0, ~length=tempX.contents) ++
-            "O" ++
-            Js.String2.substrAtMost(s.contents, ~from=tempX.contents + 1, ~length=num)
-        | _ => Js.log(s)
-        }
-        tempArray[i] = s.contents
-      }
-      totalString := totalString.contents ++ tempArray[i] ++ "\n"
-    }
-    setQuestion(_ => totalString.contents)
-    setAnswer(_ => count.contents)
+    Js.log("문제풀이")
+    //    setQuestion(_ => )
+    //    setAnswer(_ => )
   }
 
   <>
@@ -81,8 +50,8 @@ let default = () => {
             )}
             type_="button"
             style={ReactDOM.Style.make(~display="inline-block", ~margin="10px", ())}
-            onClick={_ => handleOnClick()}
             value={`2. Day3 문제읽기`}
+            onClick={_ => handleOnClick()}
           />
           <input
             className={"storybook-button storybook-button--medium " ++ (
@@ -93,8 +62,8 @@ let default = () => {
             type_="button"
             style={ReactDOM.Style.make(~display="inline-block", ~margin="10px", ())}
             disabled={qArray->Belt.Array.length === 0}
-            onClick={_ => handleOnClick2()}
             value={`3. Day3 문제풀기`}
+            onClick={_ => handleOnClick2()}
           />
         </div>
         <div>
@@ -110,7 +79,7 @@ let default = () => {
             )}
             value={Js.Int.toString(answer)}
           />
-          {`개 입니다.`->React.string}
+          {`입니다.`->React.string}
         </div>
       </div>
     </div>

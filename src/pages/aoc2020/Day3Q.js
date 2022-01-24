@@ -1,3 +1,6 @@
+/*
+* 리액트 + 자바스크립트
+ */
 import React, {useState} from 'react';
 
 export const Day3Q = () => {
@@ -52,27 +55,27 @@ export const Day3Q = () => {
                     <input type="button" style={{display: "inline-block", margin:"10px"}} value={"Day3 문제읽기"} onClick={() => { handleOnClick() }}/>
                     <input type="button" style={{display: "inline-block", margin:"10px"}} value={"Day3 문제풀기"} disabled={question===""} onClick={() => { handleOnClick2() }}/>
                 </div>
-                <div>
-                    오른쪽으로
-                    <input
-                        type={"text"}
-                        style={{display: "inline-block", textAlign: "center", width: "40px", margin: "10px"}}
-                        value={move.x}
-                        onChange={
-                            (e) => {
-                                changeMove({x: Number(e.target.value), y: move.y})
-                            }}/>
-                    칸, 아래쪽으로
-                    <input
-                        type={"text"}
-                        style={{display: "inline-block",  textAlign: "center", width: "40px", margin: "10px"}}
-                        value={move.y}
-                        onChange={
-                            (e) => {
-                                changeMove({x: move.x, y: Number(e.target.value)})
-                            }}/>
-                    칸씩 이동
-                </div>
+                {/*<div>*/}
+                {/*    오른쪽으로*/}
+                {/*    <input*/}
+                {/*        type={"text"}*/}
+                {/*        style={{display: "inline-block", textAlign: "center", width: "40px", margin: "10px"}}*/}
+                {/*        value={move.x}*/}
+                {/*        onChange={*/}
+                {/*            (e) => {*/}
+                {/*                changeMove({x: Number(e.target.value), y: move.y})*/}
+                {/*            }}/>*/}
+                {/*    칸, 아래쪽으로*/}
+                {/*    <input*/}
+                {/*        type={"text"}*/}
+                {/*        style={{display: "inline-block",  textAlign: "center", width: "40px", margin: "10px"}}*/}
+                {/*        value={move.y}*/}
+                {/*        onChange={*/}
+                {/*            (e) => {*/}
+                {/*                changeMove({x: move.x, y: Number(e.target.value)})*/}
+                {/*            }}/>*/}
+                {/*    칸씩 이동*/}
+                {/*</div>*/}
                 <div>
                     답은
                     <input
