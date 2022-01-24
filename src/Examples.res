@@ -1,4 +1,4 @@
-let text = ref(`..##.......
+let day3txt = `..##.......
 #...#...#..
 .#....#..#.
 ..#.#...#.#
@@ -8,12 +8,11 @@ let text = ref(`..##.......
 .#........#
 #.##...#...
 #...##....#
-.#..#...#.#`)
+.#..#...#.#`
 
 type props = {msg: string}
 
 let default = (props: props) => {
-  let (robots, setRobots) = React.useState(() => AsyncData.NotAsked)
   let (question, setQuestion) = React.useState(_ => "")
   let (qArray, setQArray) = React.useState(_ => [])
   let (num, changeNum) = React.useState(_ => 11)
@@ -23,8 +22,8 @@ let default = (props: props) => {
 
   let handleOnClick = () => {
     Js.log(`문제가져오기 로직`->React.string)
-
-    setQuestion(_ => text.contents)
+    let text = ref(day3txt)
+    setQuestion(_ => day3txt)
     let tempArray = []
     text := Js.String2.replace(text.contents, "\n", "")
     let lengthCount = Js.String2.length(text.contents)
@@ -40,6 +39,8 @@ let default = (props: props) => {
   let handleOnClick2 = question => {
     Js.log(`문제풀기 로직`->React.string)
     Js.log(question->React.string)
+
+    let tempX = ref(0)
   }
 
   let onChange = evt => {
@@ -50,12 +51,8 @@ let default = (props: props) => {
 
   <>
     <div>
-      <button disabled={robots->AsyncData.isLoading} onClick={_ => handleOnClick()}>
-        {`Day3 문제보기`->React.string}
-      </button>
-      <button disabled={robots->AsyncData.isLoading} onClick={_ => handleOnClick2(question)}>
-        {`Day3 문제풀기`->React.string}
-      </button>
+      <button onClick={_ => handleOnClick()}> {`Day3 문제보기`->React.string} </button>
+      <button onClick={_ => handleOnClick2(question)}> {`Day3 문제풀기`->React.string} </button>
       <div />
       <textarea
         style={ReactDOM.Style.make(~height="700px", ~width="260px", ())} onChange value=question

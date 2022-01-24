@@ -2,30 +2,23 @@
 
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
-import * as AsyncData from "rescript-asyncdata/src/AsyncData.mjs";
 
-var text = {
-  contents: "..##.......\n#...#...#..\n.#....#..#.\n..#.#...#.#\n.#...##..#.\n..#.##.....\n.#.#.#....#\n.#........#\n#.##...#...\n#...##....#\n.#..#...#.#"
-};
+var day3txt = "..##.......\n#...#...#..\n.#....#..#.\n..#.#...#.#\n.#...##..#.\n..#.##.....\n.#.#.#....#\n.#........#\n#.##...#...\n#...##....#\n.#..#...#.#";
 
 function $$default(props) {
   var match = React.useState(function () {
-        return /* NotAsked */0;
-      });
-  var robots = match[0];
-  var match$1 = React.useState(function () {
         return "";
       });
-  var setQuestion = match$1[1];
-  var question = match$1[0];
-  var match$2 = React.useState(function () {
+  var setQuestion = match[1];
+  var question = match[0];
+  var match$1 = React.useState(function () {
         return [];
       });
-  var setQArray = match$2[1];
-  var match$3 = React.useState(function () {
+  var setQArray = match$1[1];
+  var match$2 = React.useState(function () {
         return 11;
       });
-  var num = match$3[0];
+  var num = match$2[0];
   var onChange = function (evt) {
     evt.preventDefault();
     var value = evt.target.value;
@@ -34,25 +27,24 @@ function $$default(props) {
                 }));
   };
   return React.createElement(React.Fragment, undefined, React.createElement("div", undefined, React.createElement("button", {
-                      disabled: AsyncData.isLoading(robots),
                       onClick: (function (param) {
                           console.log("문제가져오기 로직");
+                          var text = day3txt;
                           Curry._1(setQuestion, (function (param) {
-                                  return text.contents;
+                                  return day3txt;
                                 }));
                           var tempArray = [];
-                          text.contents = text.contents.replace("\n", "");
-                          var lengthCount = text.contents.length;
+                          text = text.replace("\n", "");
+                          var lengthCount = text.length;
                           for(var i = 0; i <= lengthCount; ++i){
-                            tempArray.push(text.contents.substr(0, num));
-                            text.contents = text.contents.substr(num, lengthCount);
+                            tempArray.push(text.substr(0, num));
+                            text = text.substr(num, lengthCount);
                           }
                           return Curry._1(setQArray, (function (param) {
                                         return tempArray;
                                       }));
                         })
                     }, "Day3 문제보기"), React.createElement("button", {
-                      disabled: AsyncData.isLoading(robots),
                       onClick: (function (param) {
                           console.log("문제풀기 로직");
                           console.log(question);
