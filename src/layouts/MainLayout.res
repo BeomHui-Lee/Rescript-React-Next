@@ -17,7 +17,8 @@ module Navigation = {
       </Link>
       <div className="flex w-1/3 justify-end">
         <Link href="/"> <a className="px-3"> {`메인`->React.string} </a> </Link>
-        <Link href="/examples"> <a className="px-3"> {`Aoc 문제`->React.string} </a> </Link>
+        <Link href="/examples"> <a className="px-3"> {`테스트`->React.string} </a> </Link>
+        <Link href="/aoc2020"> <a className="px-3"> {`AOC문제`->React.string} </a> </Link>
       </div>
     </nav>
 }
