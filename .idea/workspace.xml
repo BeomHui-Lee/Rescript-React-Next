@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d7215944-4a49-4c2a-8d97-b4a536d4d2eb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/BasicTemplateReact.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/BasicTemplateReact.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/BasicTemplateRescript.res" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/BasicTemplateRescript.res" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.res" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.res" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +17,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Rescript Interface" />
-        <option value="Rescript Module" />
         <option value="JavaScript File" />
+        <option value="Rescript Module" />
       </list>
     </option>
   </component>
@@ -33,7 +34,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pages" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
@@ -41,6 +42,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages" />
+      <recent name="$PROJECT_DIR$/src/pages/aoc2020" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/aoc2020" />
       <recent name="$PROJECT_DIR$" />
@@ -105,7 +108,9 @@
       <workItem from="1642947103897" duration="1153000" />
       <workItem from="1642979721285" duration="11205000" />
       <workItem from="1642999511760" duration="12553000" />
-      <workItem from="1643025928329" duration="2979000" />
+      <workItem from="1643025928329" duration="3097000" />
+      <workItem from="1643070696518" duration="1084000" />
+      <workItem from="1643072312474" duration="1785000" />
     </task>
     <servers />
   </component>

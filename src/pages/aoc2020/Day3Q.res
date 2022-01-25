@@ -55,7 +55,7 @@ let default = () => {
 
   <>
     <div className={"flex"}>
-      <div className={"flex w-1/2"}>
+      <div className={"flex w-1/3"}>
         <div style={ReactDOM.Style.make(~display="block", ~position="absolute", ())}>
           {`1. 문제 붙여 넣기`->React.string}
         </div>
@@ -71,7 +71,7 @@ let default = () => {
           onChange={questionChange}
         />
       </div>
-      <div className={"w-1/2"}>
+      <div className={"w-2/3"}>
         <div style={ReactDOM.Style.make(~display="block", ())}>
           <input
             className={"storybook-button storybook-button--medium " ++ (

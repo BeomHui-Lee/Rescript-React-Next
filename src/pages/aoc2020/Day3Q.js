@@ -47,10 +47,10 @@ export const Day3Q = () => {
 
     return (
         <div className={"flex"}>
-            <div className={"flex w-1/2"}>
+            <div className={"flex w-1/3"}>
                 <textarea style={{height: "700px", width: "260px", border: "1px solid #333"}} value={question} onChange={(e) => {questionChange(e)}}/>
             </div>
-            <div className={"w-1/2"}>
+            <div className={"w-2/3"}>
                 <div style={{display: "block"}}>
                     <input type="button" style={{display: "inline-block", margin:"10px"}} value={"Day3 문제읽기"} onClick={() => { handleOnClick() }}/>
                     <input type="button" style={{display: "inline-block", margin:"10px"}} value={"Day3 문제풀기"} disabled={question===""} onClick={() => { handleOnClick2() }}/>

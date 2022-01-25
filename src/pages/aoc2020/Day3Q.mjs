@@ -38,7 +38,7 @@ function $$default(param) {
   return React.createElement(React.Fragment, undefined, React.createElement("div", {
                   className: "flex"
                 }, React.createElement("div", {
-                      className: "flex w-1/2"
+                      className: "flex w-1/3"
                     }, React.createElement("div", {
                           style: {
                             display: "block",
@@ -54,7 +54,7 @@ function $$default(param) {
                           value: question,
                           onChange: questionChange
                         })), React.createElement("div", {
-                      className: "w-1/2"
+                      className: "w-2/3"
                     }, React.createElement("div", {
                           style: {
                             display: "block"

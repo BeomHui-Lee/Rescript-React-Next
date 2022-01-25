@@ -1,9 +1,6 @@
-/*
-* 리액트 + 자바스크립트
- */
 import React, {useState} from 'react';
 
-export const Day3Q = () => {
+export const Day1Q = () => {
     const [question, setQuestion] = useState("");
     const [qArray, setQArray] = useState([]);
     const [answer, setAnswer] = useState(0);
@@ -19,15 +16,29 @@ export const Day3Q = () => {
     }
 
     const handleOnClick2 = () => {
-        console.log("문제풀이(파트1)");
-        // setQuestion(totalString);
-        // setAnswer(count);
+        console.log("문제풀이 (파트1)");
+        for(let i = 0; i < qArray.length; i++){
+            for(let j = 0; j< qArray.length; j++) {
+                if(Number(qArray[i]) + Number(qArray[j]) === 2020){
+                    setAnswer(Number(qArray[i]) * Number(qArray[j]));
+                    return;
+                }
+            }
+        }
     }
 
     const handleOnClick3 = () => {
-        console.log("문제풀이(파트2)");
-        // setQuestion(totalString);
-        // setAnswer(count);
+        console.log("문제풀이 (파트2)");
+        for(let i = 0; i < qArray.length; i++){
+            for(let j = 0; j< qArray.length; j++) {
+                for (let k = 0; k < qArray.length; k++) {
+                    if (Number(qArray[i]) + Number(qArray[j]) + Number(qArray[k]) === 2020) {
+                        setAnswer(Number(qArray[i]) * Number(qArray[j]) * Number(qArray[k]));
+                        return;
+                    }
+                }
+            }
+        }
     }
 
     return (
@@ -50,12 +61,12 @@ export const Day3Q = () => {
                     <input
                         className={"storybook-button storybook-button--medium " + (
                             qArray.length === 0
-                            ? "storybook-button--primary"
-                            : "storybook-button--secondary"
+                                ? "storybook-button--primary"
+                                : "storybook-button--secondary"
                         )}
                         type="button"
                         style={{display: "inline-block", margin:"10px"}}
-                        value={"2. Day3 문제읽기"}
+                        value={"2. Day1 문제읽기"}
                         onClick={() => { handleOnClick() }}
                     />
                     <input
@@ -67,7 +78,7 @@ export const Day3Q = () => {
                         type="button"
                         style={{display: "inline-block", margin:"10px"}}
                         disabled={qArray.length === 0}
-                        value={"3. Day3 문제풀기 (파트1)"}
+                        value={"3. Day1 문제풀기 (파트1)"}
                         onClick={() => { handleOnClick2() }}
                     />
                     <input
@@ -79,7 +90,7 @@ export const Day3Q = () => {
                         type="button"
                         style={{display: "inline-block", margin:"10px"}}
                         disabled={qArray.length === 0}
-                        value={"3. Day3 문제풀기 (파트2)"}
+                        value={"3. Day1 문제풀기 (파트2)"}
                         onClick={() => { handleOnClick3() }}
                     />
                 </div>
@@ -100,4 +111,4 @@ export const Day3Q = () => {
         </div>)
 }
 
-export default Day3Q;
+export default Day1Q;
