@@ -72,7 +72,7 @@ let default = () => {
             )}
             type_="button"
             style={ReactDOM.Style.make(~display="inline-block", ~margin="10px", ())}
-            value={`2. Day3 문제읽기`}
+            value={`2. Day1 문제읽기`}
             onClick={_ => handleOnClick()}
           />
           <input
@@ -84,7 +84,7 @@ let default = () => {
             type_="button"
             style={ReactDOM.Style.make(~display="inline-block", ~margin="10px", ())}
             disabled={qArray->Belt.Array.length === 0}
-            value={`3. Day3 문제풀기 (파트1)`}
+            value={`3. Day1 문제풀기 (파트1)`}
             onClick={_ => handleOnClick2()}
           />
           <input
@@ -96,7 +96,7 @@ let default = () => {
             type_="button"
             style={ReactDOM.Style.make(~display="inline-block", ~margin="10px", ())}
             disabled={qArray->Belt.Array.length === 0}
-            value={`3. Day3 문제풀기 (파트2)`}
+            value={`3. Day1 문제풀기 (파트2)`}
             onClick={_ => handleOnClick3()}
           />
         </div>

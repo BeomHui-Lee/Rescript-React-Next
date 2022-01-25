@@ -55,7 +55,7 @@ function $$default(param) {
                                 margin: "10px"
                               },
                               type: "button",
-                              value: "2. Day3 문제읽기",
+                              value: "2. Day1 문제읽기",
                               onClick: (function (param) {
                                   console.log("문제읽기");
                                   return Curry._1(setQArray, (function (param) {
@@ -72,7 +72,7 @@ function $$default(param) {
                               },
                               disabled: qArray.length === 0,
                               type: "button",
-                              value: "3. Day3 문제풀기 (파트1)",
+                              value: "3. Day1 문제풀기 (파트1)",
                               onClick: (function (param) {
                                   console.log("문제풀이 (파트1)");
                                   for(var i = 0 ,i_finish = qArray.length; i < i_finish; ++i){
@@ -103,7 +103,7 @@ function $$default(param) {
                               },
                               disabled: qArray.length === 0,
                               type: "button",
-                              value: "3. Day3 문제풀기 (파트2)",
+                              value: "3. Day1 문제풀기 (파트2)",
                               onClick: (function (param) {
                                   console.log("\xeb\xac\xb8\xec\xa0\x9c\xed\x92\x80\xec\x9d\xb4 (\xed\x8c\x8c\xed\x8a\xb82)");
                                   for(var i = 0 ,i_finish = qArray.length; i < i_finish; ++i){

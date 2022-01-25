@@ -7,6 +7,7 @@ const Aoc2020 = () => {
             <Link href="/day1q"><a className="px-3"> Day1 </a></Link>
             <Link href="/day3q"><a className="px-3"> Day3 </a></Link>
             <Link href="/day5q"><a className="px-3"> Day5 </a></Link>
+            <Link href="/day6q"><a className="px-3"> Day6 </a></Link>
         </div>
     )
 }

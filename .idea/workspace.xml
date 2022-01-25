@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d7215944-4a49-4c2a-8d97-b4a536d4d2eb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/BasicTemplateRescript.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/BasicTemplateRescript.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/BasicTemplateRescript.res" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/BasicTemplateRescript.res" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.res" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.res" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Aoc2020.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Aoc2020.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day1Q.res" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Day1Q.res" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day5Q.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Day5Q.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day5Q.res" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Day5Q.res" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +17,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Rescript Interface" />
-        <option value="JavaScript File" />
         <option value="Rescript Module" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -111,7 +110,7 @@
       <workItem from="1642999511760" duration="12553000" />
       <workItem from="1643025928329" duration="3097000" />
       <workItem from="1643070696518" duration="1084000" />
-      <workItem from="1643072312474" duration="13122000" />
+      <workItem from="1643072312474" duration="21598000" />
     </task>
     <servers />
   </component>

@@ -58,7 +58,41 @@ let default = () => {
 
   let handleOnClick3 = () => {
     Js.log(`문제풀이 (파트2)`)
-    let tempArray = seat
+    let min = ref(0)
+    let max = ref(127)
+    let seatID = ref(0)
+    let higestSeatID = ref(0)
+    let seatArray = []
+    for i in 0 to Belt.Array.length(qArray) - 1 {
+      for j in 0 to Js.String2.length(qArray[i]) - 1 {
+        switch j {
+        | _ if j < 7 =>
+          switch Js.String2.substrAtMost(qArray[i], ~from=j, ~length=1) {
+          | "F" => max := max.contents - (max.contents - min.contents + 1) / 2
+          | _ => min := (max.contents - min.contents + 1) / 2 + min.contents
+          }
+        | _ =>
+          if j === 7 {
+            seatID := min.contents * 8
+            min := 0
+            max := 7
+          }
+          switch Js.String2.substrAtMost(qArray[i], ~from=j, ~length=1) {
+          | "L" => max := max.contents - (max.contents - min.contents + 1) / 2
+          | _ => min := (max.contents - min.contents + 1) / 2 + min.contents
+          }
+        }
+      }
+      seatID := seatID.contents + min.contents
+      let _ = Js.Array2.push(seatArray, seatID.contents)
+      if higestSeatID.contents < seatID.contents {
+        higestSeatID := seatID.contents
+      }
+      min := 0
+      max := 127
+    }
+
+    let tempArray = seatArray
     let _ = Js.Array.sortInPlaceWith((a, b) => a - b, tempArray)
     for i in 1 to Belt.Array.length(tempArray) - 1 {
       if tempArray[i] !== tempArray[i - 1] + 1 {

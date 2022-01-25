@@ -23,7 +23,6 @@ function $$default(param) {
         return [];
       });
   var setSeat = match$3[1];
-  var seat = match$3[0];
   var questionChange = function (e) {
     return Curry._1(setQuestion, e.currentTarget.value);
   };
@@ -138,16 +137,52 @@ function $$default(param) {
                               value: "3. Day5 문제풀기 (파트2)",
                               onClick: (function (param) {
                                   console.log("문제풀이 (파트2)");
-                                  seat.sort(function (a, b) {
+                                  var min = 0;
+                                  var max = 127;
+                                  var seatID = 0;
+                                  var higestSeatID = 0;
+                                  var seatArray = [];
+                                  for(var i = 0 ,i_finish = qArray.length; i < i_finish; ++i){
+                                    for(var j = 0 ,j_finish = Caml_array.get(qArray, i).length; j < j_finish; ++j){
+                                      if (j < 7) {
+                                        var match = Caml_array.get(qArray, i).substr(j, 1);
+                                        if (match === "F") {
+                                          max = max - (((max - min | 0) + 1 | 0) / 2 | 0) | 0;
+                                        } else {
+                                          min = (((max - min | 0) + 1 | 0) / 2 | 0) + min | 0;
+                                        }
+                                      } else {
+                                        if (j === 7) {
+                                          seatID = (min << 3);
+                                          min = 0;
+                                          max = 7;
+                                        }
+                                        var match$1 = Caml_array.get(qArray, i).substr(j, 1);
+                                        if (match$1 === "L") {
+                                          max = max - (((max - min | 0) + 1 | 0) / 2 | 0) | 0;
+                                        } else {
+                                          min = (((max - min | 0) + 1 | 0) / 2 | 0) + min | 0;
+                                        }
+                                      }
+                                    }
+                                    seatID = seatID + min | 0;
+                                    seatArray.push(seatID);
+                                    if (higestSeatID < seatID) {
+                                      higestSeatID = seatID;
+                                    }
+                                    min = 0;
+                                    max = 127;
+                                  }
+                                  seatArray.sort(function (a, b) {
                                         return a - b | 0;
                                       });
-                                  for(var i = 1 ,i_finish = seat.length; i < i_finish; ++i){
-                                    if (Caml_array.get(seat, i) !== (Caml_array.get(seat, i - 1 | 0) + 1 | 0)) {
-                                      Curry._1(setAnswer, (function(i){
+                                  for(var i$1 = 1 ,i_finish$1 = seatArray.length; i$1 < i_finish$1; ++i$1){
+                                    if (Caml_array.get(seatArray, i$1) !== (Caml_array.get(seatArray, i$1 - 1 | 0) + 1 | 0)) {
+                                      Curry._1(setAnswer, (function(i$1){
                                           return function (param) {
-                                            return Caml_array.get(seat, i) - 1 | 0;
+                                            return Caml_array.get(seatArray, i$1) - 1 | 0;
                                           }
-                                          }(i)));
+                                          }(i$1)));
                                     }
                                     
                                   }
