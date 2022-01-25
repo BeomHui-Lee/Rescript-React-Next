@@ -2,6 +2,7 @@
 
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
+import * as Caml_array from "rescript/lib/es6/caml_array.js";
 
 function $$default(param) {
   var match = React.useState(function () {
@@ -17,6 +18,7 @@ function $$default(param) {
   var match$2 = React.useState(function () {
         return 0;
       });
+  var setAnswer = match$2[1];
   var questionChange = function (e) {
     return Curry._1(setQuestion, e.currentTarget.value);
   };
@@ -55,7 +57,7 @@ function $$default(param) {
                               type: "button",
                               value: "2. Day3 문제읽기",
                               onClick: (function (param) {
-                                  console.log("\xeb\xac\xb8\xec\xa0\x9c\xec\x9d\xbd\xea\xb8\xb0");
+                                  console.log("문제읽기");
                                   return Curry._1(setQArray, (function (param) {
                                                 return question.split("\n");
                                               }));
@@ -72,7 +74,23 @@ function $$default(param) {
                               type: "button",
                               value: "3. Day3 문제풀기 (파트1)",
                               onClick: (function (param) {
-                                  console.log("\xeb\xac\xb8\xec\xa0\x9c\xed\x92\x80\xec\x9d\xb4 (\xed\x8c\x8c\xed\x8a\xb81)");
+                                  console.log("문제풀이 (파트1)");
+                                  for(var i = 0 ,i_finish = qArray.length; i < i_finish; ++i){
+                                    (function(i){
+                                    for(var j = 0 ,j_finish = qArray.length; j < j_finish; ++j){
+                                      var match = (Number(Caml_array.get(qArray, i)) | 0) + (Number(Caml_array.get(qArray, j)) | 0) | 0;
+                                      if (match !== 2020) {
+                                        console.log("etc");
+                                      } else {
+                                        Curry._1(setAnswer, (function(j){
+                                            return function (param) {
+                                              return Math.imul(Number(Caml_array.get(qArray, i)) | 0, Number(Caml_array.get(qArray, j)) | 0);
+                                            }
+                                            }(j)));
+                                      }
+                                    }
+                                    }(i));
+                                  }
                                   
                                 })
                             }), React.createElement("input", {
@@ -88,6 +106,24 @@ function $$default(param) {
                               value: "3. Day3 문제풀기 (파트2)",
                               onClick: (function (param) {
                                   console.log("\xeb\xac\xb8\xec\xa0\x9c\xed\x92\x80\xec\x9d\xb4 (\xed\x8c\x8c\xed\x8a\xb82)");
+                                  for(var i = 0 ,i_finish = qArray.length; i < i_finish; ++i){
+                                    for(var j = 0 ,j_finish = qArray.length; j < j_finish; ++j){
+                                      (function(j){
+                                      for(var k = 0 ,k_finish = qArray.length; k < k_finish; ++k){
+                                        var match = ((Number(Caml_array.get(qArray, i)) | 0) + (Number(Caml_array.get(qArray, j)) | 0) | 0) + (Number(Caml_array.get(qArray, k)) | 0) | 0;
+                                        if (match !== 2020) {
+                                          console.log("etc");
+                                        } else {
+                                          Curry._1(setAnswer, (function(k){
+                                              return function (param) {
+                                                return Math.imul(Math.imul(Number(Caml_array.get(qArray, i)) | 0, Number(Caml_array.get(qArray, j)) | 0), Number(Caml_array.get(qArray, k)) | 0);
+                                              }
+                                              }(k)));
+                                        }
+                                      }
+                                      }(j));
+                                    }
+                                  }
                                   
                                 })
                             })), React.createElement("div", undefined, "4. 답은", React.createElement("input", {
