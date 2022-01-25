@@ -70,6 +70,7 @@ function $$default(param) {
                               type: "button",
                               value: "2. Day3 문제읽기",
                               onClick: (function (param) {
+                                  console.log("문제읽기");
                                   Curry._1(changeNum, (function (param) {
                                           return question.indexOf("\n");
                                         }));
@@ -89,6 +90,7 @@ function $$default(param) {
                               type: "button",
                               value: "3. Day3 문제풀기",
                               onClick: (function (param) {
+                                  console.log("문제풀이 (파트1)");
                                   var tempX = 0;
                                   var totalString = {
                                     contents: Caml_array.get(qArray, 0) + "\n"

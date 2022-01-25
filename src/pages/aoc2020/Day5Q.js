@@ -1,6 +1,4 @@
 import React, {useState} from 'react';
-import {NewButton} from "../stories/NewButton";
-import day5txt from "../aoc2020/day5.txt";
 
 export const Day5Q = () => {
     const [question, setQuestion] = useState("");
@@ -8,19 +6,18 @@ export const Day5Q = () => {
     const [answer, setAnswer] = useState(0);
     const [seat, setSeat] = useState([]);
 
+    const questionChange = (e) => {
+        setQuestion(e.target.value);
+    }
+
     const handleOnClick = () => {
-        fetch(day5txt)
-            .then(r => r.text())
-            .then(text => {
-                setQuestion(text);
-                let tempArray = [];
-                tempArray = text.split("\n");
-                setQArray(tempArray);
-            });
+        console.log("문제읽기");
+        let text = question;
+        setQArray(text.split("\n"));
     }
 
     const handleOnClick2 = () => {
-        let x = 0, y = 0; //행, 열
+        console.log("문제풀이 (파트1)");
         let min = 0, max = 127;
         let seatID = 0;
         let higestSeatID = 0;
@@ -60,6 +57,7 @@ export const Day5Q = () => {
     }
 
     const handleOnClick3 = async () => {
+        console.log("문제풀이 (파트2)");
         let tempArray = seat;
         tempArray.sort((a, b) => {return a - b;})
         for(let i =1; i<tempArray.length; i++){
@@ -71,21 +69,71 @@ export const Day5Q = () => {
     }
 
     return (
-        <div>
-            <div style={{display: "block"}}>
-                <NewButton style={{display: "inline-block", margin:"10px"}} label={"Day5 문제보기"} onClick={() => { handleOnClick() }}/>
-                <NewButton primary={true} style={{display: "inline-block", margin:"10px"}} label={"Day5 문제풀기 (파트1)"} onClick={() => { handleOnClick2() }}/>
-                <NewButton primary={true} style={{display: "inline-block", margin:"10px"}} label={"Day5 문제풀기 (파트2)"} onClick={() => { handleOnClick3() }}/>
+        <div className={"flex"}>
+            <div className={"flex w-1/3"}>
+                <div style={{display: "block", position: "absolute"}}>1. 문제 붙여 넣기</div>
+                <textarea
+                    style={{
+                        marginTop: "30px",
+                        height: "700px",
+                        width: "260px",
+                        border: "1px solid #333"
+                    }}
+                    value={question}
+                    onChange={(e) => {questionChange(e)}}
+                />
             </div>
-            <textarea style={{height: "700px", width: "260px"}} readOnly={true} value={question} />
-            <div>
-                답은
-                <input
-                    type={"text"}
-                    readOnly={true}
-                    style={{display: "inline-block",  textAlign: "center", width: "200px", margin: "10px"}}
-                    value={answer}/>
-                입니다.
+            <div className={"w-2/3"}>
+                <div style={{display: "block"}}>
+                    <input
+                        className={"storybook-button storybook-button--medium " + (
+                            qArray.length === 0
+                                ? "storybook-button--primary"
+                                : "storybook-button--secondary"
+                        )}
+                        type="button"
+                        style={{display: "inline-block", margin:"10px"}}
+                        value={"2. Day5 문제읽기"}
+                        onClick={() => { handleOnClick() }}
+                    />
+                    <input
+                        className={"storybook-button storybook-button--medium " + (
+                            qArray.length === 0
+                                ? "storybook-button--secondary"
+                                : "storybook-button--primary"
+                        )}
+                        type="button"
+                        style={{display: "inline-block", margin:"10px"}}
+                        disabled={qArray.length === 0}
+                        value={"3. Day5 문제풀기 (파트1)"}
+                        onClick={() => { handleOnClick2() }}
+                    />
+                    <input
+                        className={"storybook-button storybook-button--medium " + (
+                            qArray.length === 0
+                                ? "storybook-button--secondary"
+                                : "storybook-button--primary"
+                        )}
+                        type="button"
+                        style={{display: "inline-block", margin:"10px"}}
+                        disabled={qArray.length === 0}
+                        value={"3. Day5 문제풀기 (파트2)"}
+                        onClick={() => { handleOnClick3() }}
+                    />
+                </div>
+                <div>
+                    4. 답은
+                    <input
+                        type={"text"}
+                        readOnly={true}
+                        style={{
+                            display: "inline-block",
+                            textAlign: "center",
+                            width: "200px",
+                            margin: "10px"}}
+                        value={answer}/>
+                    입니다.
+                </div>
             </div>
         </div>)
 }

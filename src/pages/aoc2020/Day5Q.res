@@ -4,9 +4,8 @@
 let default = () => {
   let (question, setQuestion) = React.useState(_ => "")
   let (qArray, setQArray) = React.useState(_ => [])
-  let (move, changeMove) = React.useState(_ => {"x": 3, "y": 1})
-  let (num, changeNum) = React.useState(_ => 31)
   let (answer, setAnswer) = React.useState(_ => 0)
+  let (seat, setSeat) = React.useState(_ => [])
 
   let questionChange = e => {
     setQuestion(ReactEvent.Form.currentTarget(e)["value"])
@@ -15,44 +14,57 @@ let default = () => {
   let handleOnClick = () => {
     Js.log(`문제읽기`)
     let text = question
-    changeNum(_ => Js.String2.indexOf(text, "\n")) // 한 줄마다 문자가 몇개씩 있는지
     setQArray(_ => Js.String2.split(text, "\n"))
   }
 
   let handleOnClick2 = () => {
     Js.log(`문제풀이 (파트1)`)
-    let tempX = ref(0) //우측으로 이동하는 값을 체크하는 변수
-    let tempArray = qArray
-    let totalString = ref(tempArray[0] ++ "\n")
-    let count = ref(0) // X 개수가 몇개인지 카운트
-
-    for i in 1 to qArray->Belt.Array.length - 1 {
-      if mod(i, move["y"]) === 0 {
-        //아래쪽으로 몇칸 갈때마다 체크할지
-        tempX := tempX.contents + move["x"]
-        tempX.contents > num - 1 ? tempX := tempX.contents - num : tempX := tempX.contents
-        let s = ref(tempArray[i])
-
-        switch Js.String2.substrAtMost(s.contents, ~from=tempX.contents, ~length=1) {
-        | "#" =>
-          s :=
-            Js.String2.substrAtMost(s.contents, ~from=0, ~length=tempX.contents) ++
-            "X" ++
-            Js.String2.substrAtMost(s.contents, ~from=tempX.contents + 1, ~length=num)
-          count := count.contents + 1
-        | "." =>
-          s :=
-            Js.String2.substrAtMost(s.contents, ~from=0, ~length=tempX.contents) ++
-            "O" ++
-            Js.String2.substrAtMost(s.contents, ~from=tempX.contents + 1, ~length=num)
-        | _ => Js.log(s)
+    let min = ref(0)
+    let max = ref(127)
+    let seatID = ref(0)
+    let higestSeatID = ref(0)
+    let seatArray = []
+    for i in 0 to Belt.Array.length(qArray) - 1 {
+      for j in 0 to Js.String2.length(qArray[i]) - 1 {
+        switch j {
+        | _ if j < 7 =>
+          switch Js.String2.substrAtMost(qArray[i], ~from=j, ~length=1) {
+          | "F" => max := max.contents - (max.contents - min.contents + 1) / 2
+          | _ => min := (max.contents - min.contents + 1) / 2 + min.contents
+          }
+        | _ =>
+          if j === 7 {
+            seatID := min.contents * 8
+            min := 0
+            max := 7
+          }
+          switch Js.String2.substrAtMost(qArray[i], ~from=j, ~length=1) {
+          | "L" => max := max.contents - (max.contents - min.contents + 1) / 2
+          | _ => min := (max.contents - min.contents + 1) / 2 + min.contents
+          }
         }
-        tempArray[i] = s.contents
       }
-      totalString := totalString.contents ++ tempArray[i] ++ "\n"
+      seatID := seatID.contents + min.contents
+      let _ = Js.Array2.push(seatArray, seatID.contents)
+      if higestSeatID.contents < seatID.contents {
+        higestSeatID := seatID.contents
+      }
+      min := 0
+      max := 127
     }
-    setQuestion(_ => totalString.contents)
-    setAnswer(_ => count.contents)
+    setAnswer(_ => higestSeatID.contents)
+    setSeat(_ => seatArray)
+  }
+
+  let handleOnClick3 = () => {
+    Js.log(`문제풀이 (파트2)`)
+    let tempArray = seat
+    let _ = Js.Array.sortInPlaceWith((a, b) => a - b, tempArray)
+    for i in 1 to Belt.Array.length(tempArray) - 1 {
+      if tempArray[i] !== tempArray[i - 1] + 1 {
+        setAnswer(_ => tempArray[i] - 1)
+      }
+    }
   }
 
   <>
@@ -83,8 +95,8 @@ let default = () => {
             )}
             type_="button"
             style={ReactDOM.Style.make(~display="inline-block", ~margin="10px", ())}
+            value={`2. Day5 문제읽기`}
             onClick={_ => handleOnClick()}
-            value={`2. Day3 문제읽기`}
           />
           <input
             className={"storybook-button storybook-button--medium " ++ (
@@ -95,8 +107,20 @@ let default = () => {
             type_="button"
             style={ReactDOM.Style.make(~display="inline-block", ~margin="10px", ())}
             disabled={qArray->Belt.Array.length === 0}
+            value={`3. Day5 문제풀기 (파트1)`}
             onClick={_ => handleOnClick2()}
-            value={`3. Day3 문제풀기`}
+          />
+          <input
+            className={"storybook-button storybook-button--medium " ++ (
+              qArray->Belt.Array.length === 0
+                ? "storybook-button--secondary"
+                : "storybook-button--primary"
+            )}
+            type_="button"
+            style={ReactDOM.Style.make(~display="inline-block", ~margin="10px", ())}
+            disabled={qArray->Belt.Array.length === 0}
+            value={`3. Day5 문제풀기 (파트2)`}
+            onClick={_ => handleOnClick3()}
           />
         </div>
         <div>
@@ -106,13 +130,13 @@ let default = () => {
             style={ReactDOM.Style.make(
               ~display="inline-block",
               ~textAlign="center",
-              ~width="40px",
+              ~width="200px",
               ~margin="10px",
               (),
             )}
             value={Js.Int.toString(answer)}
           />
-          {`개 입니다.`->React.string}
+          {`입니다.`->React.string}
         </div>
       </div>
     </div>

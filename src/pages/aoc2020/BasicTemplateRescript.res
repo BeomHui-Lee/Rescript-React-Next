@@ -11,19 +11,19 @@ let default = () => {
   }
 
   let handleOnClick = () => {
-    Js.log("문제읽기")
+    Js.log(`문제읽기`)
     let text = question
     setQArray(_ => Js.String2.split(text, "\n"))
   }
 
   let handleOnClick2 = () => {
-    Js.log("문제풀이 (파트1)")
+    Js.log(`문제풀이 (파트1)`)
     //    setQuestion(_ => )
     //    setAnswer(_ => )
   }
 
   let handleOnClick3 = () => {
-    Js.log("문제풀이 (파트2)")
+    Js.log(`문제풀이 (파트2)`)
     //    setQuestion(_ => )
     //    setAnswer(_ => )
   }
