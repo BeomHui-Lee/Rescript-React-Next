@@ -55,6 +55,10 @@ let default = () => {
     setAnswer(_ => count.contents)
   }
 
+  let handleOnClick3 = () => {
+    Js.log(`문제풀이 (파트2)`)
+  }
+
   <>
     <div className={"flex"}>
       <div className={"flex w-1/3"}>
@@ -96,7 +100,19 @@ let default = () => {
             style={ReactDOM.Style.make(~display="inline-block", ~margin="10px", ())}
             disabled={qArray->Belt.Array.length === 0}
             onClick={_ => handleOnClick2()}
-            value={`3. Day3 문제풀기`}
+            value={`3. Day3 문제풀기 (파트1)`}
+          />
+          <input
+            className={"storybook-button storybook-button--medium " ++ (
+              qArray->Belt.Array.length === 0
+                ? "storybook-button--secondary"
+                : "storybook-button--primary"
+            )}
+            type_="button"
+            style={ReactDOM.Style.make(~display="inline-block", ~margin="10px", ())}
+            disabled={qArray->Belt.Array.length === 0}
+            value={`3. Day3 문제풀기 (파트2)`}
+            onClick={_ => handleOnClick3()}
           />
         </div>
         <div>

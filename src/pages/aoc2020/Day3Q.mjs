@@ -88,7 +88,7 @@ function $$default(param) {
                               },
                               disabled: qArray.length === 0,
                               type: "button",
-                              value: "3. Day3 문제풀기",
+                              value: "3. Day3 문제풀기 (파트1)",
                               onClick: (function (param) {
                                   console.log("문제풀이 (파트1)");
                                   var tempX = 0;
@@ -127,6 +127,21 @@ function $$default(param) {
                                   return Curry._1(setAnswer, (function (param) {
                                                 return count.contents;
                                               }));
+                                })
+                            }), React.createElement("input", {
+                              className: "storybook-button storybook-button--medium " + (
+                                qArray.length === 0 ? "storybook-button--secondary" : "storybook-button--primary"
+                              ),
+                              style: {
+                                display: "inline-block",
+                                margin: "10px"
+                              },
+                              disabled: qArray.length === 0,
+                              type: "button",
+                              value: "3. Day3 문제풀기 (파트2)",
+                              onClick: (function (param) {
+                                  console.log("문제풀이 (파트2)");
+                                  
                                 })
                             })), React.createElement("div", undefined, "4. 답은", React.createElement("input", {
                               style: {

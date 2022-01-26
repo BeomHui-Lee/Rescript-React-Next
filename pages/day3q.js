@@ -1,5 +1,5 @@
-import Day3Que from "../src/pages/aoc2020/Day3Q.mjs"; // 리스크립트
-// import Day3Que from "../src/pages/aoc2020/Day3Q.js"; // 자바스크립트
+// import Day3Que from "../src/pages/aoc2020/Day3Q.mjs"; // 리스크립트
+import Day3Que from "../src/pages/aoc2020/Day3Q.js"; // 자바스크립트
 
 // Note:
 // We need to wrap the make call with
