@@ -23,8 +23,9 @@ let default = () => {
     Js.log(`문제풀이 (파트1)`)
     let tempX = ref(0) //우측으로 이동하는 값을 체크하는 변수
     let tempArray = qArray
-    let totalString = ref(tempArray[0] ++ "\n")
     let count = ref(0) // X 개수가 몇개인지 카운트
+
+    //    Belt.Array.map(qArray, x => Js.Array2.push(tt, x[1]))
 
     for i in 1 to qArray->Belt.Array.length - 1 {
       if mod(i, move["y"]) === 0 {
@@ -34,29 +35,40 @@ let default = () => {
         let s = ref(tempArray[i])
 
         switch Js.String2.substrAtMost(s.contents, ~from=tempX.contents, ~length=1) {
-        | "#" =>
-          s :=
-            Js.String2.substrAtMost(s.contents, ~from=0, ~length=tempX.contents) ++
-            "X" ++
-            Js.String2.substrAtMost(s.contents, ~from=tempX.contents + 1, ~length=num)
-          count := count.contents + 1
-        | "." =>
-          s :=
-            Js.String2.substrAtMost(s.contents, ~from=0, ~length=tempX.contents) ++
-            "O" ++
-            Js.String2.substrAtMost(s.contents, ~from=tempX.contents + 1, ~length=num)
+        | "#" => count := count.contents + 1
         | _ => Js.log(s)
         }
         tempArray[i] = s.contents
       }
-      totalString := totalString.contents ++ tempArray[i] ++ "\n"
     }
-    setQuestion(_ => totalString.contents)
     setAnswer(_ => count.contents)
   }
 
   let handleOnClick3 = () => {
     Js.log(`문제풀이 (파트2)`)
+    let tempX = ref(0)
+    let count = ref(0)
+    let moveArray = [[1, 1], [3, 1], [5, 1], [7, 1], [1, 2]]
+    let countArray = []
+
+    for j in 0 to Belt.Array.length(moveArray) - 1 {
+      for i in 1 to Belt.Array.length(qArray) - 1 {
+        switch mod(i, moveArray[j][1]) {
+        | 0 =>
+          tempX := tempX.contents + moveArray[j][0]
+          if tempX.contents > num - 1 {
+            tempX := tempX.contents - num
+          }
+          if Js.String2.substrAtMost(qArray[i], ~from=tempX.contents, ~length=1) === "#" {
+            count := count.contents + 1
+          }
+        | _ => Js.log(`etc`)
+        }
+      }
+      tempX := 0
+      let _ = Js.Array2.push(countArray, count.contents)
+      count := 0
+    }
   }
 
   <>

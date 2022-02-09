@@ -92,9 +92,6 @@ function $$default(param) {
                               onClick: (function (param) {
                                   console.log("문제풀이 (파트1)");
                                   var tempX = 0;
-                                  var totalString = {
-                                    contents: Caml_array.get(qArray, 0) + "\n"
-                                  };
                                   var count = {
                                     contents: 0
                                   };
@@ -106,24 +103,15 @@ function $$default(param) {
                                         contents: Caml_array.get(qArray, i)
                                       };
                                       var match = s.contents.substr(tempX, 1);
-                                      switch (match) {
-                                        case "#" :
-                                            s.contents = s.contents.substr(0, tempX) + "X" + s.contents.substr(tempX + 1 | 0, num);
-                                            count.contents = count.contents + 1 | 0;
-                                            break;
-                                        case "." :
-                                            s.contents = s.contents.substr(0, tempX) + "O" + s.contents.substr(tempX + 1 | 0, num);
-                                            break;
-                                        default:
-                                          console.log(s);
+                                      if (match === "#") {
+                                        count.contents = count.contents + 1 | 0;
+                                      } else {
+                                        console.log(s);
                                       }
                                       Caml_array.set(qArray, i, s.contents);
                                     }
-                                    totalString.contents = totalString.contents + Caml_array.get(qArray, i) + "\n";
+                                    
                                   }
-                                  Curry._1(setQuestion, (function (param) {
-                                          return totalString.contents;
-                                        }));
                                   return Curry._1(setAnswer, (function (param) {
                                                 return count.contents;
                                               }));
@@ -141,6 +129,51 @@ function $$default(param) {
                               value: "3. Day3 문제풀기 (파트2)",
                               onClick: (function (param) {
                                   console.log("문제풀이 (파트2)");
+                                  var tempX = 0;
+                                  var count = 0;
+                                  var moveArray = [
+                                    [
+                                      1,
+                                      1
+                                    ],
+                                    [
+                                      3,
+                                      1
+                                    ],
+                                    [
+                                      5,
+                                      1
+                                    ],
+                                    [
+                                      7,
+                                      1
+                                    ],
+                                    [
+                                      1,
+                                      2
+                                    ]
+                                  ];
+                                  var countArray = [];
+                                  for(var j = 0 ,j_finish = moveArray.length; j < j_finish; ++j){
+                                    for(var i = 1 ,i_finish = qArray.length; i < i_finish; ++i){
+                                      var match = Caml_int32.mod_(i, Caml_array.get(Caml_array.get(moveArray, j), 1));
+                                      if (match !== 0) {
+                                        console.log("etc");
+                                      } else {
+                                        tempX = tempX + Caml_array.get(Caml_array.get(moveArray, j), 0) | 0;
+                                        if (tempX > (num - 1 | 0)) {
+                                          tempX = tempX - num | 0;
+                                        }
+                                        if (Caml_array.get(qArray, i).substr(tempX, 1) === "#") {
+                                          count = count + 1 | 0;
+                                        }
+                                        
+                                      }
+                                    }
+                                    tempX = 0;
+                                    countArray.push(count);
+                                    count = 0;
+                                  }
                                   
                                 })
                             })), React.createElement("div", undefined, "4. 답은", React.createElement("input", {

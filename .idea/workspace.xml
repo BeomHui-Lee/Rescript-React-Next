@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d7215944-4a49-4c2a-8d97-b4a536d4d2eb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/day3q.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/day3q.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.mjs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.res" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.res" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +110,18 @@
       <workItem from="1643025928329" duration="3097000" />
       <workItem from="1643070696518" duration="1084000" />
       <workItem from="1643072312474" duration="21695000" />
-      <workItem from="1643152402493" duration="3037000" />
+      <workItem from="1643152402493" duration="16010000" />
+      <workItem from="1643243459716" duration="7371000" />
+      <workItem from="1643288201436" duration="1572000" />
+      <workItem from="1643332424192" duration="599000" />
+      <workItem from="1643783533627" duration="52000" />
+      <workItem from="1643804372196" duration="1593000" />
+      <workItem from="1643845796062" duration="4783000" />
+      <workItem from="1643894379716" duration="597000" />
+      <workItem from="1643940553067" duration="259000" />
+      <workItem from="1644213224660" duration="2232000" />
+      <workItem from="1644241714325" duration="212000" />
+      <workItem from="1644371026643" duration="2217000" />
     </task>
     <servers />
   </component>

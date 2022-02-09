@@ -50,8 +50,6 @@ export const Day3Q = () => {
     const handleOnClick3 = () => {
         console.log("문제풀이 (파트2)");
         let tempX = 0; //우측으로 이동하는 값을 체크하는 변수
-        let tempArray = [...qArray];
-        let totalString = tempArray[0] + "\n";
         let count = 0; // X 개수가 몇개인지 카운트
         let moveArray = [[1,1],[3,1],[5,1],[7,1],[1,2]];
         let countArray = [];
@@ -61,18 +59,12 @@ export const Day3Q = () => {
                 if(((i % moveArray[j][1]) === 0)) { //아래쪽으로 몇칸 갈때마다 체크할지
                     tempX += moveArray[j][0];
                     tempX = tempX > (num - 1) ? tempX - num : tempX;
-                    let s = tempArray[i];
-                    if (s[tempX] === "#") {
-                        s = s.substring(0, tempX) + "X" + s.substring(tempX + 1, num);
+                    if (qArray[i][tempX] === "#") {
                         count++;
-                    } else {
-                        s = s.substring(0, tempX) + "O" + s.substring(tempX + 1, num);
                     }
-                    tempArray[i] = s;
                 }
             }
             tempX = 0;
-            tempArray = [...qArray];
             countArray.push(count);
             count=0;
         }
