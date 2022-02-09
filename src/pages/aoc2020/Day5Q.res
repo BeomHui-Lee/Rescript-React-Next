@@ -1,104 +1,88 @@
 /*
  * 리액트 + 리스크립트
  */
+// -------------------------------------------------------------------------------------
+// ----- 문제 읽어오기 -----
+// let text = Node.Fs.readFileAsUtf8Sync("input/Week1/Year2020Day5.txt")
+
+let part2 = arr => {
+  let firstSeat = arr[0] - 1
+  arr->Belt.Array.reduce(firstSeat, (prev, next) => {
+    switch next === prev + 1 {
+    | true => prev + 1
+    | false => prev
+    }
+  }) + 1
+}
+
+let part1 = arr => {
+  arr[Belt.Array.length(arr) - 1]
+}
+
+let makeSeatID = arr => {
+  arr->Belt.Array.reduceWithIndex(0, (acc, x, i) => {
+    let exp = Belt.Array.length(arr) - (i + 1)
+    let increment = Js.Math.pow_int(~base=2, ~exp)
+    acc + x * increment
+    // acc + x + i
+  })
+}
+// :: [0,0,1,0,0,0,1,1,1,0] -> [142]
+
+let convertBinary = char => {
+  switch char {
+  | "B" | "R" => 1
+  | _ => 0
+  }
+}
+
+let convertArray = str => {
+  str->Js.String2.split("")->Belt.Array.map(char => convertBinary(char))
+}
+// :: "BFFFBBFLRR" -> ["B","F","F","F","B"...] -> [1,0,0,0,1,...]
+
+let makeArray = input => {
+  input->Js.String2.split("\n")
+}
+// :: ["BFFFBBFLRR", "FBBBFFFRLR", ...]
+
+let program = input => {
+  input->makeArray->Belt.Array.map(str => convertArray(str))->Belt.Array.map(arr => makeSeatID(arr))
+}
+
+let result = (input, f) => {
+  ((a, b) => a - b)->Js.Array.sortInPlaceWith(program(input))->f
+  //->Js.log
+}
+
+// result(text, part1)
+// result(text, part2)
+
+// -------------------------------------------------------------------------------------
+
 let default = () => {
   let (question, setQuestion) = React.useState(_ => "")
-  let (qArray, setQArray) = React.useState(_ => [])
   let (answer, setAnswer) = React.useState(_ => 0)
-  let (seat, setSeat) = React.useState(_ => [])
 
   let questionChange = e => {
     setQuestion(ReactEvent.Form.currentTarget(e)["value"])
+    Js.log(`문제 붙여넣기 완료`)
   }
 
   let handleOnClick = () => {
-    Js.log(`문제읽기`)
-    let text = question
-    setQArray(_ => Js.String2.split(text, "\n"))
+    Js.log(`클리어`)
+    setQuestion(_ => "")
+    setAnswer(_ => 0)
   }
 
   let handleOnClick2 = () => {
     Js.log(`문제풀이 (파트1)`)
-    let min = ref(0)
-    let max = ref(127)
-    let seatID = ref(0)
-    let higestSeatID = ref(0)
-    let seatArray = []
-    for i in 0 to Belt.Array.length(qArray) - 1 {
-      for j in 0 to Js.String2.length(qArray[i]) - 1 {
-        switch j {
-        | _ if j < 7 =>
-          switch Js.String2.substrAtMost(qArray[i], ~from=j, ~length=1) {
-          | "F" => max := max.contents - (max.contents - min.contents + 1) / 2
-          | _ => min := (max.contents - min.contents + 1) / 2 + min.contents
-          }
-        | _ =>
-          if j === 7 {
-            seatID := min.contents * 8
-            min := 0
-            max := 7
-          }
-          switch Js.String2.substrAtMost(qArray[i], ~from=j, ~length=1) {
-          | "L" => max := max.contents - (max.contents - min.contents + 1) / 2
-          | _ => min := (max.contents - min.contents + 1) / 2 + min.contents
-          }
-        }
-      }
-      seatID := seatID.contents + min.contents
-      let _ = Js.Array2.push(seatArray, seatID.contents)
-      if higestSeatID.contents < seatID.contents {
-        higestSeatID := seatID.contents
-      }
-      min := 0
-      max := 127
-    }
-    setAnswer(_ => higestSeatID.contents)
-    setSeat(_ => seatArray)
+    setAnswer(_ => question->result(part1))
   }
 
   let handleOnClick3 = () => {
     Js.log(`문제풀이 (파트2)`)
-    let min = ref(0)
-    let max = ref(127)
-    let seatID = ref(0)
-    let higestSeatID = ref(0)
-    let seatArray = []
-    for i in 0 to Belt.Array.length(qArray) - 1 {
-      for j in 0 to Js.String2.length(qArray[i]) - 1 {
-        switch j {
-        | _ if j < 7 =>
-          switch Js.String2.substrAtMost(qArray[i], ~from=j, ~length=1) {
-          | "F" => max := max.contents - (max.contents - min.contents + 1) / 2
-          | _ => min := (max.contents - min.contents + 1) / 2 + min.contents
-          }
-        | _ =>
-          if j === 7 {
-            seatID := min.contents * 8
-            min := 0
-            max := 7
-          }
-          switch Js.String2.substrAtMost(qArray[i], ~from=j, ~length=1) {
-          | "L" => max := max.contents - (max.contents - min.contents + 1) / 2
-          | _ => min := (max.contents - min.contents + 1) / 2 + min.contents
-          }
-        }
-      }
-      seatID := seatID.contents + min.contents
-      let _ = Js.Array2.push(seatArray, seatID.contents)
-      if higestSeatID.contents < seatID.contents {
-        higestSeatID := seatID.contents
-      }
-      min := 0
-      max := 127
-    }
-
-    let tempArray = seatArray
-    let _ = Js.Array.sortInPlaceWith((a, b) => a - b, tempArray)
-    for i in 1 to Belt.Array.length(tempArray) - 1 {
-      if tempArray[i] !== tempArray[i - 1] + 1 {
-        setAnswer(_ => tempArray[i] - 1)
-      }
-    }
+    setAnswer(_ => question->result(part2))
   }
 
   <>
@@ -123,42 +107,40 @@ let default = () => {
         <div style={ReactDOM.Style.make(~display="block", ())}>
           <input
             className={"storybook-button storybook-button--medium " ++ (
-              qArray->Belt.Array.length === 0
-                ? "storybook-button--primary"
-                : "storybook-button--secondary"
-            )}
-            type_="button"
-            style={ReactDOM.Style.make(~display="inline-block", ~margin="10px", ())}
-            value={`2. Day5 문제읽기`}
-            onClick={_ => handleOnClick()}
-          />
-          <input
-            className={"storybook-button storybook-button--medium " ++ (
-              qArray->Belt.Array.length === 0
+              question->Js.String2.length === 0
                 ? "storybook-button--secondary"
                 : "storybook-button--primary"
             )}
             type_="button"
             style={ReactDOM.Style.make(~display="inline-block", ~margin="10px", ())}
-            disabled={qArray->Belt.Array.length === 0}
-            value={`3. Day5 문제풀기 (파트1)`}
+            disabled={question->Js.String2.length === 0}
+            value={`2. Day5 문제풀기 (파트1)`}
             onClick={_ => handleOnClick2()}
           />
           <input
             className={"storybook-button storybook-button--medium " ++ (
-              qArray->Belt.Array.length === 0
+              question->Js.String2.length === 0
                 ? "storybook-button--secondary"
                 : "storybook-button--primary"
             )}
             type_="button"
             style={ReactDOM.Style.make(~display="inline-block", ~margin="10px", ())}
-            disabled={qArray->Belt.Array.length === 0}
-            value={`3. Day5 문제풀기 (파트2)`}
+            disabled={question->Js.String2.length === 0}
+            value={`2. Day5 문제풀기 (파트2)`}
             onClick={_ => handleOnClick3()}
+          />
+          <input
+            className={"storybook-button storybook-button--medium " ++ (
+              answer !== 0 ? "storybook-button--primary" : "storybook-button--secondary"
+            )}
+            type_="button"
+            style={ReactDOM.Style.make(~display="inline-block", ~margin="10px", ())}
+            value={`클리어`}
+            onClick={_ => handleOnClick()}
           />
         </div>
         <div>
-          {`4. 답은`->React.string}
+          {`답은`->React.string}
           <input
             readOnly={true}
             style={ReactDOM.Style.make(

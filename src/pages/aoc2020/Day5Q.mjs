@@ -2,7 +2,59 @@
 
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
+import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as Caml_array from "rescript/lib/es6/caml_array.js";
+
+function part2(arr) {
+  var firstSeat = Caml_array.get(arr, 0) - 1 | 0;
+  return Belt_Array.reduce(arr, firstSeat, (function (prev, next) {
+                if (next === (prev + 1 | 0)) {
+                  return prev + 1 | 0;
+                } else {
+                  return prev;
+                }
+              })) + 1 | 0;
+}
+
+function part1(arr) {
+  return Caml_array.get(arr, arr.length - 1 | 0);
+}
+
+function makeSeatID(arr) {
+  return Belt_Array.reduceWithIndex(arr, 0, (function (acc, x, i) {
+                var exp = arr.length - (i + 1 | 0) | 0;
+                var increment = Math.pow(2, exp);
+                return acc + Math.imul(x, increment) | 0;
+              }));
+}
+
+function convertBinary($$char) {
+  switch ($$char) {
+    case "B" :
+    case "R" :
+        return 1;
+    default:
+      return 0;
+  }
+}
+
+function convertArray(str) {
+  return Belt_Array.map(str.split(""), convertBinary);
+}
+
+function makeArray(input) {
+  return input.split("\n");
+}
+
+function program(input) {
+  return Belt_Array.map(Belt_Array.map(input.split("\n"), convertArray), makeSeatID);
+}
+
+function result(input, f) {
+  return Curry._1(f, program(input).sort(function (a, b) {
+                  return a - b | 0;
+                }));
+}
 
 function $$default(param) {
   var match = React.useState(function () {
@@ -11,20 +63,14 @@ function $$default(param) {
   var setQuestion = match[1];
   var question = match[0];
   var match$1 = React.useState(function () {
-        return [];
-      });
-  var setQArray = match$1[1];
-  var qArray = match$1[0];
-  var match$2 = React.useState(function () {
         return 0;
       });
-  var setAnswer = match$2[1];
-  var match$3 = React.useState(function () {
-        return [];
-      });
-  var setSeat = match$3[1];
+  var setAnswer = match$1[1];
+  var answer = match$1[0];
   var questionChange = function (e) {
-    return Curry._1(setQuestion, e.currentTarget.value);
+    Curry._1(setQuestion, e.currentTarget.value);
+    console.log("문제 붙여넣기 완료");
+    
   };
   return React.createElement(React.Fragment, undefined, React.createElement("div", {
                   className: "flex"
@@ -52,143 +98,58 @@ function $$default(param) {
                           }
                         }, React.createElement("input", {
                               className: "storybook-button storybook-button--medium " + (
-                                qArray.length === 0 ? "storybook-button--primary" : "storybook-button--secondary"
+                                question.length === 0 ? "storybook-button--secondary" : "storybook-button--primary"
                               ),
                               style: {
                                 display: "inline-block",
                                 margin: "10px"
                               },
+                              disabled: question.length === 0,
                               type: "button",
-                              value: "2. Day5 문제읽기",
-                              onClick: (function (param) {
-                                  console.log("문제읽기");
-                                  return Curry._1(setQArray, (function (param) {
-                                                return question.split("\n");
-                                              }));
-                                })
-                            }), React.createElement("input", {
-                              className: "storybook-button storybook-button--medium " + (
-                                qArray.length === 0 ? "storybook-button--secondary" : "storybook-button--primary"
-                              ),
-                              style: {
-                                display: "inline-block",
-                                margin: "10px"
-                              },
-                              disabled: qArray.length === 0,
-                              type: "button",
-                              value: "3. Day5 문제풀기 (파트1)",
+                              value: "2. Day5 문제풀기 (파트1)",
                               onClick: (function (param) {
                                   console.log("문제풀이 (파트1)");
-                                  var min = 0;
-                                  var max = 127;
-                                  var seatID = 0;
-                                  var higestSeatID = {
-                                    contents: 0
-                                  };
-                                  var seatArray = [];
-                                  for(var i = 0 ,i_finish = qArray.length; i < i_finish; ++i){
-                                    for(var j = 0 ,j_finish = Caml_array.get(qArray, i).length; j < j_finish; ++j){
-                                      if (j < 7) {
-                                        var match = Caml_array.get(qArray, i).substr(j, 1);
-                                        if (match === "F") {
-                                          max = max - (((max - min | 0) + 1 | 0) / 2 | 0) | 0;
-                                        } else {
-                                          min = (((max - min | 0) + 1 | 0) / 2 | 0) + min | 0;
-                                        }
-                                      } else {
-                                        if (j === 7) {
-                                          seatID = (min << 3);
-                                          min = 0;
-                                          max = 7;
-                                        }
-                                        var match$1 = Caml_array.get(qArray, i).substr(j, 1);
-                                        if (match$1 === "L") {
-                                          max = max - (((max - min | 0) + 1 | 0) / 2 | 0) | 0;
-                                        } else {
-                                          min = (((max - min | 0) + 1 | 0) / 2 | 0) + min | 0;
-                                        }
-                                      }
-                                    }
-                                    seatID = seatID + min | 0;
-                                    seatArray.push(seatID);
-                                    if (higestSeatID.contents < seatID) {
-                                      higestSeatID.contents = seatID;
-                                    }
-                                    min = 0;
-                                    max = 127;
-                                  }
-                                  Curry._1(setAnswer, (function (param) {
-                                          return higestSeatID.contents;
-                                        }));
-                                  return Curry._1(setSeat, (function (param) {
-                                                return seatArray;
+                                  return Curry._1(setAnswer, (function (param) {
+                                                return result(question, part1);
                                               }));
                                 })
                             }), React.createElement("input", {
                               className: "storybook-button storybook-button--medium " + (
-                                qArray.length === 0 ? "storybook-button--secondary" : "storybook-button--primary"
+                                question.length === 0 ? "storybook-button--secondary" : "storybook-button--primary"
                               ),
                               style: {
                                 display: "inline-block",
                                 margin: "10px"
                               },
-                              disabled: qArray.length === 0,
+                              disabled: question.length === 0,
                               type: "button",
-                              value: "3. Day5 문제풀기 (파트2)",
+                              value: "2. Day5 문제풀기 (파트2)",
                               onClick: (function (param) {
                                   console.log("문제풀이 (파트2)");
-                                  var min = 0;
-                                  var max = 127;
-                                  var seatID = 0;
-                                  var higestSeatID = 0;
-                                  var seatArray = [];
-                                  for(var i = 0 ,i_finish = qArray.length; i < i_finish; ++i){
-                                    for(var j = 0 ,j_finish = Caml_array.get(qArray, i).length; j < j_finish; ++j){
-                                      if (j < 7) {
-                                        var match = Caml_array.get(qArray, i).substr(j, 1);
-                                        if (match === "F") {
-                                          max = max - (((max - min | 0) + 1 | 0) / 2 | 0) | 0;
-                                        } else {
-                                          min = (((max - min | 0) + 1 | 0) / 2 | 0) + min | 0;
-                                        }
-                                      } else {
-                                        if (j === 7) {
-                                          seatID = (min << 3);
-                                          min = 0;
-                                          max = 7;
-                                        }
-                                        var match$1 = Caml_array.get(qArray, i).substr(j, 1);
-                                        if (match$1 === "L") {
-                                          max = max - (((max - min | 0) + 1 | 0) / 2 | 0) | 0;
-                                        } else {
-                                          min = (((max - min | 0) + 1 | 0) / 2 | 0) + min | 0;
-                                        }
-                                      }
-                                    }
-                                    seatID = seatID + min | 0;
-                                    seatArray.push(seatID);
-                                    if (higestSeatID < seatID) {
-                                      higestSeatID = seatID;
-                                    }
-                                    min = 0;
-                                    max = 127;
-                                  }
-                                  seatArray.sort(function (a, b) {
-                                        return a - b | 0;
-                                      });
-                                  for(var i$1 = 1 ,i_finish$1 = seatArray.length; i$1 < i_finish$1; ++i$1){
-                                    if (Caml_array.get(seatArray, i$1) !== (Caml_array.get(seatArray, i$1 - 1 | 0) + 1 | 0)) {
-                                      Curry._1(setAnswer, (function(i$1){
-                                          return function (param) {
-                                            return Caml_array.get(seatArray, i$1) - 1 | 0;
-                                          }
-                                          }(i$1)));
-                                    }
-                                    
-                                  }
-                                  
+                                  return Curry._1(setAnswer, (function (param) {
+                                                return result(question, part2);
+                                              }));
                                 })
-                            })), React.createElement("div", undefined, "4. 답은", React.createElement("input", {
+                            }), React.createElement("input", {
+                              className: "storybook-button storybook-button--medium " + (
+                                answer !== 0 ? "storybook-button--primary" : "storybook-button--secondary"
+                              ),
+                              style: {
+                                display: "inline-block",
+                                margin: "10px"
+                              },
+                              type: "button",
+                              value: "클리어",
+                              onClick: (function (param) {
+                                  console.log("클리어");
+                                  Curry._1(setQuestion, (function (param) {
+                                          return "";
+                                        }));
+                                  return Curry._1(setAnswer, (function (param) {
+                                                return 0;
+                                              }));
+                                })
+                            })), React.createElement("div", undefined, "답은", React.createElement("input", {
                               style: {
                                 display: "inline-block",
                                 margin: "10px",
@@ -196,11 +157,19 @@ function $$default(param) {
                                 width: "200px"
                               },
                               readOnly: true,
-                              value: match$2[0].toString()
+                              value: answer.toString()
                             }), "입니다."))));
 }
 
 export {
+  part2 ,
+  part1 ,
+  makeSeatID ,
+  convertBinary ,
+  convertArray ,
+  makeArray ,
+  program ,
+  result ,
   $$default ,
   $$default as default,
   

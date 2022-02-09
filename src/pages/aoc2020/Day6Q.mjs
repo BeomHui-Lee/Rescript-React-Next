@@ -60,14 +60,10 @@ function $$default(param) {
   var setQuestion = match[1];
   var question = match[0];
   var match$1 = React.useState(function () {
-        return [];
-      });
-  var setQArray = match$1[1];
-  var match$2 = React.useState(function () {
         return 0;
       });
-  var setAnswer = match$2[1];
-  var answer = match$2[0];
+  var setAnswer = match$1[1];
+  var answer = match$1[0];
   var questionChange = function (e) {
     Curry._1(setQuestion, e.currentTarget.value);
     console.log("문제 붙여넣기 완료");
@@ -145,9 +141,6 @@ function $$default(param) {
                                   console.log("클리어");
                                   Curry._1(setQuestion, (function (param) {
                                           return "";
-                                        }));
-                                  Curry._1(setQArray, (function (param) {
-                                          return [];
                                         }));
                                   return Curry._1(setAnswer, (function (param) {
                                                 return 0;

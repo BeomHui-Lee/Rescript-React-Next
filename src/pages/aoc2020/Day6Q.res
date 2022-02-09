@@ -43,19 +43,19 @@ let program = (input, f) => {
 
 let part1 = input => {
   program(input, multiLineToSet)
-  //->Js.log
 }
 
 let part2 = input => {
   program(input, multiLineToSet2)
-  //->Js.log
 }
+
+// part1(text)
+// part2(text)
 
 // -------------------------------------------------------------------------------------
 
 let default = () => {
   let (question, setQuestion) = React.useState(_ => "")
-  let (qArray, setQArray) = React.useState(_ => [])
   let (answer, setAnswer) = React.useState(_ => 0)
 
   let questionChange = e => {
@@ -66,7 +66,6 @@ let default = () => {
   let handleOnClick = () => {
     Js.log(`클리어`)
     setQuestion(_ => "")
-    setQArray(_ => [])
     setAnswer(_ => 0)
   }
 

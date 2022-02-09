@@ -32,7 +32,7 @@ function MainLayout$Navigation(Props) {
                       href: "/examples",
                       children: React.createElement("a", {
                             className: "px-3"
-                          }, "테스트")
+                          }, "예제페이지")
                     }), React.createElement(Link, {
                       href: "/aoc2020",
                       children: React.createElement("a", {
