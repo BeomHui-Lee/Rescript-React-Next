@@ -5,7 +5,7 @@ module P = {
 
 let default = () =>
   <div>
-    <h1 className="text-3xl font-semibold"> {`홈 화면`->React.string} </h1>
+    <h1 className=%twc("text-3xl font-semibold")> {`홈 화면`->React.string} </h1>
     <P>
       {React.string(` This is a simple template for a Next
       project using ReScript & TailwindCSS.`)}

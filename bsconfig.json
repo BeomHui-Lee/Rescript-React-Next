@@ -1,26 +1,36 @@
 {
-  "name": "rescript-react-next",
-  "namespace": false,
-  "reason": { "react-jsx": 3 },
-  "bs-dependencies": [
-    "@rescript/react",
-    "rescript-future",
-    "rescript-asyncdata",
-    "rescript-request",
-    "rescript-js",
-    "bs-fetch"
-  ],
-  "ppx-flags": [],
-  "sources": [
-    { "dir": "src", "subdirs": true }
-  ],
-  "package-specs": {
-    "module": "es6",
-    "in-source": true
-  },
-  "suffix": ".mjs",
-  "gentypeconfig": {
-    "language": "untyped",
-    "shims": []
-  }
+    "name": "rescript-react-next",
+    "namespace": false,
+    "reason": {
+        "react-jsx": 3
+    },
+    "bs-dependencies": [
+        "@rescript/react",
+        "rescript-future",
+        "rescript-asyncdata",
+        "rescript-request",
+        "rescript-js",
+        "bs-fetch"
+    ],
+    "ppx-flags": [
+        [
+            "@greenlabs/res-tailwindcss/ppx",
+            "--path styles/.tailwind.dev.css"
+        ]
+    ],
+    "sources": [
+        {
+            "dir": "src",
+            "subdirs": true
+        }
+    ],
+    "package-specs": {
+        "module": "es6",
+        "in-source": true
+    },
+    "suffix": ".mjs",
+    "gentypeconfig": {
+        "language": "untyped",
+        "shims": []
+    }
 }

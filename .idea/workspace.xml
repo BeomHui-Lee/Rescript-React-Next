@@ -3,9 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="d7215944-4a49-4c2a-8d97-b4a536d4d2eb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.res" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.res" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/bsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.res" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.res" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Index.res" beforeDir="false" afterPath="$PROJECT_DIR$/src/Index.res" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/MainLayout.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/MainLayout.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/MainLayout.res" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/MainLayout.res" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Aoc2020.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Aoc2020.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day1Q.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day1Q.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day1Q.res" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.res" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day3Q.resi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day5Q.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day5Q.res" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Day5Q.res" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day6Q.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/Day6Q.res" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/aoc2020/Day6Q.res" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/aoc2020/day3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,21 +42,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="23xdCYlJGbA7zALIMbY8wzI13iq" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pages" />
-    <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/user/Work/Rescript-React-Next&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pages" />
@@ -122,6 +141,11 @@
       <workItem from="1644213224660" duration="2232000" />
       <workItem from="1644241714325" duration="212000" />
       <workItem from="1644371026643" duration="2217000" />
+      <workItem from="1644899666148" duration="655000" />
+      <workItem from="1647561309447" duration="173000" />
+      <workItem from="1650856191002" duration="9000" />
+      <workItem from="1650856318342" duration="7000" />
+      <workItem from="1650872579983" duration="3000" />
     </task>
     <servers />
   </component>
@@ -138,6 +162,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

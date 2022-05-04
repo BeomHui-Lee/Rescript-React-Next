@@ -29,10 +29,10 @@ function MainLayout$Navigation(Props) {
                             className: "px-3"
                           }, "메인")
                     }), React.createElement(Link, {
-                      href: "/examples",
+                      href: "/step01",
                       children: React.createElement("a", {
                             className: "px-3"
-                          }, "예제페이지")
+                          }, "클론코딩")
                     }), React.createElement(Link, {
                       href: "/aoc2020",
                       children: React.createElement("a", {
@@ -50,7 +50,7 @@ function MainLayout(Props) {
               className: "flex lg:justify-center",
               style: minWidth
             }, React.createElement("div", {
-                  className: "max-w-5xl w-full lg:w-3/4 text-gray-900 font-base"
+                  className: "max-w-5xl w-full lg:w-3/4 text-gray-900"
                 }, React.createElement(MainLayout$Navigation, {}), React.createElement("main", {
                       className: "mt-4 mx-4"
                     }, children)));

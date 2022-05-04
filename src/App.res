@@ -27,7 +27,7 @@ let default = (props: props): React.element => {
   switch router.route {
   | "/examples" =>
     <MainLayout>
-      <h1 className="font-bold"> {`예제 페이지`->React.string} </h1> <div> content </div>
+      <h1 className=%twc("font-bold")> {`예제 페이지`->React.string} </h1> <div> content </div>
     </MainLayout>
   | _ => <MainLayout> content </MainLayout>
   }
